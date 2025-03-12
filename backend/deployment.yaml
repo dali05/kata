@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: register-app-deployment
+  name: kata-backend-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: register-app
+      app: kata-backend
   template:
     metadata:
       labels:
-        app: register-app
+        app: kata-backend
     spec:
       containers:
-        - name: register-app
-          image: ashfaque9x/register-app-pipeline:1.0.0-9
+        - name: kata-backend
+          image: dali05/kata-app-pipeline:latest
           resources:
             limits:
               memory: "256Mi"

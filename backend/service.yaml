@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: register-app-service
+  name: kata-backend-service
   labels:
-    app: register-app 
+    app: kata-backend
 spec:
   selector:
-    app: register-app
+    app: kata-backend
 
   ports:
     - port: 8080
