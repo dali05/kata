@@ -1,0 +1,42 @@
+creation instance aws jenkins master
+     connect to jenkins-master with mobawterm
+	 lance la cmd sudo apt update, sudo apt upgrade
+	 lance la cmd sudo nano /etc/hostname => to modify server name, press ctr+o puis ctrl+x to save and exit
+	 lance la cmd sudo init 6 to restart session
+	 puis aller sur aws jenkis master onglet securit -> Security groups
+     to modify jenkins port to 8080
+	 install java with la cmd sudo apt install openjdk-21-jre
+	 aller sur https://www.jenkins.io/doc/book/installing/linux/ and copy 
+	 Weekly release code and past to cmd 
+	 lance la cmd sudo systemctl enable jenkins
+	 lance la cmd sudo systemctl start jenkins
+	 lance la cmd sudo systemctl status jenkins
+	 lance la cmd sudo nano /etc/ssh/sshd_config, puis decomenter PubkeyAuthentication et AuthorizedKeysFile
+	 sudo service ssh reload
+	 lance la cmd ssh-keygen
+	 aller au .ssh copy le contenu de key.pub et collet dans le authorize key de jenkins-agent
+
+creation instance aws jenkins Agent
+	connect to jenkins-master with mobawterm
+	 lance la cmd sudo apt update, sudo apt upgrade
+	 lance la cmd sudo nano /etc/hostname => to modify server name, press ctr+o puis ctrl+x to save and exit
+	 lance la cmd sudo init 6 to restart session
+	 install java with la cmd sudo apt install openjdk-21-jre
+	 install docker with cmd sudo apt-get install docker.io
+	 lance la cmd sudo usermod -aG docker $USER
+	 lance la cmd sudo nano /etc/ssh/sshd_config, puis decomenter PubkeyAuthentication et AuthorizedKeysFile
+	 lance sudo service ssh reload
+aller sur aws est lance jenkins master dans le navigateur, aller au system->nodes->buit-in-node
+   met numbers of executors 0 puis save 
+   apres creer nex node Jenkins Agent
+   creer new item
+   install jenkins pluguin
+		maven integration
+		Eclipse Temurin installer
+   aller tools -> maven and create maven3, puis add jdk
+		
+
+	 
+
+
+
