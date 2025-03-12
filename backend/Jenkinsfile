@@ -18,6 +18,14 @@ pipeline {
                 }
         }
 
+        stage('Run Backend Jenkinsfile') {
+                    steps {
+                        dir('backend') {
+                            load 'Jenkinsfile'
+                        }
+                    }
+                }
+
         stage("Build Backend Application") {
                     steps {
                         dir('backend') {
