@@ -18,13 +18,14 @@ pipeline {
                 }
         }
 
-        stage('Run Backend Jenkinsfile') {
-                    steps {
-                        dir('backend') {
-                            load 'Jenkinsfile'
-                        }
-                    }
-                }
+       stage('Run Backend Jenkinsfile') {
+           steps {
+               script {
+                   def backendPipeline = load 'backend/Jenkinsfile'
+                   backendPipeline.call()
+               }
+           }
+       }
 
         stage("Build Backend Application") {
                     steps {
