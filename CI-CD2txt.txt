@@ -120,6 +120,7 @@ $ sudo vim /etc/systemd/system/sonar.service
 ## Install AWS Cli on the above EC2
 Refer--https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 $ sudo su
+$ cd ~
 $ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 $ apt install unzip,   $ unzip awscliv2.zip
 $ sudo ./aws/install
@@ -144,6 +145,7 @@ $ cd /tmp
 $ ll
 $ sudo mv /tmp/eksctl /bin
 $ eksctl version
+$ cd ~
 
 ## Setup Kubernetes using eksctl
 Refer--https://github.com/aws-samples/eks-workshop/issues/734
