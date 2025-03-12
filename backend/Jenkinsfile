@@ -5,43 +5,43 @@ pipeline {
         maven 'Maven3'
     }
 
-    stages{
-        stage("Cleanup Workspace"){
-                steps {
+    stages {
+        stage("Cleanup Workspace") {
+            steps {
                 cleanWs()
-                }
+            }
         }
 
-        stage("Checkout from SCM"){
-                steps {
-                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/dali05/kata'
-                }
+        stage("Checkout from SCM") {
+            steps {
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/dali05/kata'
+            }
         }
 
-       stage('Run Backend Jenkinsfile') {
-           steps {
-               script {
-                   def backendPipeline = load 'backend/Jenkinsfile'
-                   backendPipeline.call()
-               }
-           }
-       }
+        stage('Run Backend Jenkinsfile') {
+            steps {
+                script {
+                    // Charger le Jenkinsfile du backend et l'exécuter
+                    def backendPipeline = load 'backend/Jenkinsfile'
+                    backendPipeline.call()
+                }
+            }
+        }
 
         stage("Build Backend Application") {
-                    steps {
-                        dir('backend') {
-                            sh "mvn clean package"
-                        }
-                    }
+            steps {
+                dir('backend') {
+                    sh "mvn clean package"
                 }
-
-
+            }
+        }
 
         stage("Test Backend Application") {
-                   steps {
-                       dir('backend') {
-                           sh "mvn test"
-                       }
-                   }
-           }
+            steps {
+                dir('backend') {
+                    sh "mvn test"
+                }
+            }
+        }
+    }
 }
