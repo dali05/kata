@@ -62,3 +62,5 @@ create instance sonarQube
     $ /usr/bin/java --version
     $ exit 
 
+https://www.youtube.com/watch?v=Gd9Aofx-iLI&ab_channel=PandaCloud
+https://www.youtube.com/watch?v=e42hIYkvxoQ&t=8926s&ab_channel=VirtualTechBox
