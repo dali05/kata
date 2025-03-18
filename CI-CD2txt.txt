@@ -150,8 +150,8 @@ $ cd ~
 ## Setup Kubernetes using eksctl
 Refer--https://github.com/aws-samples/eks-workshop/issues/734
 $ eksctl create cluster --name virtualtechbox-cluster \
---region ap-south-1 \
---node-type t2.small \
+--region eu-north-1 \
+--node-type t3.small \
 --nodes 3 \
 
 $ kubectl get nodes
